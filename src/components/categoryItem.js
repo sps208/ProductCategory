@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableWithoutFeedback } from 'react-native';
 import axios from 'axios'
+import { connect } from 'react-redux'
 
 import { Card, CardSection } from './common';
 import ProductItem from './ProductItem'
@@ -23,9 +24,14 @@ class CategoryItem extends Component {
     }
 
     renderProductList() {
+        const currentCategoryId = this.props.category.id
+        const activeCategoryId = this.props.activeCategory
+        console.log({currentCategoryId, activeCategoryId});
+        
+        if(currentCategoryId == activeCategoryId) {
         return this.state.products.map( item =>
             <ProductItem product={ item } key={ item.id } />
-            )
+            )}
     }
     
     render(){
@@ -49,6 +55,12 @@ class CategoryItem extends Component {
     }
 } 
 
+function mapStateToProps(state) {
+    return {
+        activeCategory: state.activeCategory
+    }
+}
 
 
-export default CategoryItem;
+
+export default connect(mapStateToProps)(CategoryItem);
