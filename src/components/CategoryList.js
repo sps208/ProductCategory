@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import CategoryItem from './categoryItem'
+import CategoryItem from './CategoryItem'
 
 class CategoryList extends Component {
     componentDidMount() {
