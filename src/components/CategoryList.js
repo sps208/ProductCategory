@@ -7,7 +7,7 @@ import CategoryItem from './CategoryItem'
 
 class CategoryList extends Component {
     componentDidMount() {
-        axios.get('http://simple-ecommerce-9999.herokuapp.com/api/v1/category')
+        axios.get('https://simple-ecommerce-9999.herokuapp.com/api/v1/category')
         .then(response => {
             console.log(response.data)
             this.props.dispatch({

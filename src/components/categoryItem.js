@@ -12,11 +12,11 @@ class CategoryItem extends Component {
     }
 
     componentDidMount() {
-        const categoryId = this.props.category.id
-        axios.get(`https;//simple-ecommerce-9999.herokuapp.com/api/v1/category/${categoryId}/product`)
+        const {categoryId} = this.props.category.id;
+        axios.get(`https://simple-ecommerce-9999.herokuapp.com/api/v1/category/${categoryId}/product`)
         .then( response => {
-            console.log(response.data)
-            this.setState({ products: response.data.data })
+            console.log(response.data.data.products)
+            this.setState({ products: response.data.data.products })
         })
         .catch( error => {
             console.log(error.message)
@@ -42,7 +42,7 @@ class CategoryItem extends Component {
                 <CardSection>
                     <TouchableWithoutFeedback
                     onPress={ () => this.props.dispatch({
-                            type: 'SET_ACTIVECATEGORY',
+                            type: 'SET_ACTIVE_CATEGORY',
                             payload: id
                     })}>
                     <Text>{ name }</Text>
