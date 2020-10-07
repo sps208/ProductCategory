@@ -12,7 +12,7 @@ class CategoryItem extends Component {
     }
 
     componentDidMount() {
-        const {categoryId} = this.props.category.id;
+        const categoryId = this.props.category.id
         axios.get(`https://simple-ecommerce-9999.herokuapp.com/api/v1/category/${categoryId}/product`)
         .then( response => {
             console.log(response.data.data.products)
@@ -20,6 +20,7 @@ class CategoryItem extends Component {
         })
         .catch( error => {
             console.log(error.message)
+            
         })
     }
 
